@@ -5,7 +5,7 @@ contract Whitelist {
     // * maximum number of addresses that can be whitelisted.
     uint8 maxWhitelistedAddreses;
 
-    // * maximum number of addresses that are whitelisted.
+    // * number of addresses that are whitelisted.
     uint8 numAddressesWhitelisted;
 
     // * map variable for each address whether it is whitelisted or not
@@ -16,6 +16,9 @@ contract Whitelist {
         maxWhitelistedAddreses = _maxWhitelistedAddreses;
     }
 
+    function getNumAddressesWhitelisted() public view returns(uint8){
+        return numAddressesWhitelisted;
+    }
     function addAddressToWhitelist() public {
         // ! msg.sender is the address of the user who called this address.
         require(
