@@ -93,10 +93,10 @@ export default function Home() {
         provider
       );
 
-      // * call the getNumAddressesWhitelisted function from the contract
+      // * call the numAddressesWhitelisted function from the contract
       // * this function returns the number of whitelisted addresses
       const _numberOfWhitelisted =
-        await whitelistContract.getNumAddressesWhitelisted();
+        await whitelistContract.numAddressesWhitelisted();
 
       // * set the state with the value returned from the contract
       setNumOfWhitelisted(_numberOfWhitelisted);

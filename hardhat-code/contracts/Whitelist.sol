@@ -3,22 +3,19 @@ pragma solidity ^0.8.0;
 
 contract Whitelist {
     // * maximum number of addresses that can be whitelisted.
-    uint8 maxWhitelistedAddreses;
+    uint8 public maxWhitelistedAddresses;
 
     // * number of addresses that are whitelisted.
-    uint8 numAddressesWhitelisted;
+    uint8 public numAddressesWhitelisted;
 
     // * map variable for each address whether it is whitelisted or not
     mapping(address => bool) public whitelistedAddresses;
 
     // * Intializing constructor for maximum numbers of address
-    constructor(uint8 _maxWhitelistedAddreses) {
-        maxWhitelistedAddreses = _maxWhitelistedAddreses;
+    constructor(uint8 _maxWhitelistedAddresses) {
+        maxWhitelistedAddresses = _maxWhitelistedAddresses;
     }
 
-    function getNumAddressesWhitelisted() public view returns(uint8){
-        return numAddressesWhitelisted;
-    }
     function addAddressToWhitelist() public {
         // ! msg.sender is the address of the user who called this address.
         require(
@@ -28,7 +25,7 @@ contract Whitelist {
 
         // ! check for max address.
         require(
-            numAddressesWhitelisted < maxWhitelistedAddreses,
+            numAddressesWhitelisted < maxWhitelistedAddresses,
             "Maximum Limit Reached you cannot Whitelist your Address."
         );
         // * add address in the map and increament the number of Address Whitelisted
